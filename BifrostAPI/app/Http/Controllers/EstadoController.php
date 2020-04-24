@@ -27,13 +27,15 @@ class EstadoController extends Controller
     {
         try {
 
+
+            $data = (object) $request->json()->all();
+
             //DD($request);
             //$out = new \Symfony\Component\Console\Output\ConsoleOutput();
-            //$out->writeln($data['Nombre']);
+            //$out->writeln($data->Nombre);
             //$out->writeln('*******************************************');
             //ConsoleOutput::writeln($request);
 
-            $data = (object) $request->json()->all();
             
             $estado = new Estado;
             $estado->UUI = $data->UUI;
@@ -49,21 +51,35 @@ class EstadoController extends Controller
         }
 
     }
-    public function Editar(Request $request, $id)
+    public function Editar(Request $request)
     {
         //
-        $estado = DB::table('tblEstado')->where('id', $id)->get();
 
-        $estado->Nombre = $request->Nombre;
+        try {
+            
+            $data = (object) $request->json()->all();
 
-        $estado->save();
+            $estado = Estado::find($data->id);
+            $estado->Nombre = $data->Nombre;
+            $estado->Descripcion = $data->Descripcion;
 
-        return response()->json($estado);
+            $estado->save();
+
+            return response()->json($estado);
+
+        } catch (\Throwable $th) {
+            return response()->json($th);
+        }
+
     }
     public function Eliminar($id)
     {
         //
-        $estado = DB::table('tblEstado')->where('id', $id)->delete();
+        //$out = new \Symfony\Component\Console\Output\ConsoleOutput();
+        //$out->writeln($id);
+
+        $estado = Estado::find($id);
+        $estado->delete();
 
         return response()->json($estado);
     }

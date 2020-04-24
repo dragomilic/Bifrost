@@ -4,7 +4,7 @@ import { EditarEstadoComponent } from './EditarEstado/EditarEstado.component';
 import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
 
 import { EstadoService } from "./Estado.service";
-import { Estado } from "../ModAdminInterface";
+import { Estado } from "@ModAdmin/ModAdminInterface";
 
 @Component({
   selector: 'app-Estado',
@@ -14,7 +14,7 @@ import { Estado } from "../ModAdminInterface";
 export class EstadoComponent implements OnInit {
 
   modalRef: MDBModalRef;
-  _estadoHead = ['ID', 'Nombre', 'Descripcion'];
+  _estadoHead = ['ID', 'Nombre', 'Descripcion', 'Acciones'];
   _estadoContent: Estado[] = [];
 
   constructor(
@@ -34,8 +34,8 @@ export class EstadoComponent implements OnInit {
     this._ES._Estado = Estado;
     this.modalRef = this.modalService.show(EditarEstadoComponent);
   }
-  EliminarEstado(){
-    //this._ES.Eliminar(estado);
+  EliminarEstado(Estado : Estado){
+    this._ES.Eliminar(Estado);
   }
 
   anadirCliente(Estado: Estado) {

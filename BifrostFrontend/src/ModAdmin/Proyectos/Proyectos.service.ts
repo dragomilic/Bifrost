@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from "../../environments/environment";
+import { environment } from "@env/environment";
 
-import { Proyecto, Estado } from "../ModAdminInterface";
-import { HttpAPIService } from "../../Conection/HttpAPI/HttpAPI.service";
-import { HttpAPI, IHttpAPI  } from "../../Conection/HttpAPI/HttpAPI";
+import { Proyecto, Estado } from "@ModAdmin/ModAdminInterface";
+import { HttpAPIService } from "@Connect/HttpAPI/HttpAPI.service";
+import { HttpAPI, IHttpAPI  } from "@Connect/HttpAPI/HttpAPI";
 
 @Injectable({
   providedIn: 'root'

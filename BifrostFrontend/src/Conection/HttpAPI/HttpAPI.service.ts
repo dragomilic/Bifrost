@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from "../../environments/environment";
+import { environment } from "@env/environment";
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { HttpAPI, IHttpAPI } from "./HttpAPI";
@@ -14,11 +14,11 @@ export class HttpAPIService<T>{
       //this.CSRF_TOKEN();
   }
   
-  Get(HttpAPI: HttpAPI<T>): Observable<[T]>{
+  Get(HttpAPI: HttpAPI<T>){
     
     let headers = HttpAPI.getHeaders();
     let Url = HttpAPI.UrlAPI();
-
+    
     return this.http.get<[T]>(Url, {headers: headers});
     
   }
@@ -30,10 +30,10 @@ export class HttpAPIService<T>{
     let Url = HttpAPI.UrlAPI();
     
     if(Body === undefined){
-      return this.http.post<T>(Url, options);
+      return this.http.post<T>(Url, options).subscribe();
     }
     else{
-      return this.http.post<T>(Url, JSON.stringify(Body), options);
+      return this.http.post<T>(Url, JSON.stringify(Body), options).subscribe();
     }
   }
   Put(HttpAPI: HttpAPI<T>): Observable<T>{
@@ -50,7 +50,7 @@ export class HttpAPIService<T>{
       return this.http.put<T>(Url, Body, options);
     }
   }
-  Delete(HttpAPI: HttpAPI<T>): Observable<T>{
+  Delete(HttpAPI: HttpAPI<T>){
     
     let _headers = HttpAPI.getHeaders();
     let options = { headers: _headers };

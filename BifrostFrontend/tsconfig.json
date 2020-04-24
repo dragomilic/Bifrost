@@ -17,10 +17,10 @@
       "esnext.asynciterable"
     ],
     "paths": {
-      "@app/*": ["app/*"],
-      "@env/*": ["environments/*"],
-      "@ModAdmin/*": ["ModAdmin/*"],
-      "@Connect/*": ["Conection/*"]
+      "@app/*": ["./src/app/*"],
+      "@env/*": ["./src/environments/*"],
+      "@ModAdmin/*": ["./src/ModAdmin/*"],
+      "@Connect/*": ["./src/Conection/*"]
     }
   },
   "angularCompilerOptions": {

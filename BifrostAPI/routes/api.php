@@ -16,10 +16,10 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => ['cors']], function () {
     Route::prefix('estado')->group(function () {
         Route::get('mostrar'  , 'EstadoController@Mostrar');
-        Route::post('buscar'  , 'EstadoController@Buscar');
+        Route::get('buscar'  , 'EstadoController@Buscar');
         Route::post('guardar' , 'EstadoController@Guardar');
         Route::post('editar'  , 'EstadoController@Editar');
-        Route::post('eliminar', 'EstadoController@Eliminar');
+        Route::post('eliminar/{id}', 'EstadoController@Eliminar');
     });
     Route::prefix('proyecto')->group(function () {
         Route::get('listado', 'ProyectoController@listado');

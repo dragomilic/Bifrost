@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { v1 as uuid } from "uuid";
 
 import { MDBModalRef } from 'angular-bootstrap-md';
-import { Estado } from "../../ModAdminInterface";
+import { Estado } from "@ModAdmin/ModAdminInterface";
 import { EstadoService } from "../Estado.service";
 
 @Component({
@@ -44,7 +44,6 @@ export class CrearEstadoComponent implements OnInit {
 
   Guardar(){
     this.EstadoService.Crear(this.EstadoForm.value);
-    window.location.reload();
   }
   
 }

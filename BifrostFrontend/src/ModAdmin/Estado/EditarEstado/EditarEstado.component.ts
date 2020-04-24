@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { v1 as uuid } from "uuid";
 
 import { MDBModalRef } from 'angular-bootstrap-md';
-import { Estado } from "../../ModAdminInterface";
+import { Estado } from "@ModAdmin/ModAdminInterface";
 import { EstadoService } from "../Estado.service";
 
 @Component({
@@ -45,7 +45,6 @@ export class EditarEstadoComponent implements OnInit {
 
   Actualizar(){
     this.EstadoService.Editar(this.EstadoForm.value);
-    window.location.reload();
   }
 
 }
