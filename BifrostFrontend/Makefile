@@ -18,6 +18,9 @@ tests:
 run:
 	ng serve
 
+unpdate:
+	npm update -g
+
 env:
 	virtualenv -p python3 venv
 	source venv/bin/activate
