@@ -15,7 +15,9 @@ class CreateTblTipoClienteTable extends Migration
     {
         Schema::create('tblTipoCliente', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('UUI');
             $table->string('Nombre');
+            $table->string('Descripcion');
             $table->unsignedBigInteger('IdEstado');//rel
             $table->timestamps();
 

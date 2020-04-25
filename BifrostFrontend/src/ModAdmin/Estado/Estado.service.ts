@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from "@env/environment";
 
 import { Estado } from "@ModAdmin/ModAdminInterface";
-import { HttpAPIService } from "../../Conection/HttpAPI/HttpAPI.service";
-import { HttpAPI, IHttpAPI  } from "../../Conection/HttpAPI/HttpAPI";
+import { HttpAPIService } from "@Connect/HttpAPI/HttpAPI.service";
+import { HttpAPI, IHttpAPI  } from "@Connect/HttpAPI/HttpAPI";
 import { Observable } from 'rxjs';
 
 @Injectable({

@@ -15,6 +15,7 @@ class CreateTblUsrRoleTable extends Migration
     {
         Schema::create('tblUsrRole', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('UUI');
             $table->unsignedBigInteger('IdRole');
             $table->unsignedBigInteger('IdUsuario');
             $table->timestamps();

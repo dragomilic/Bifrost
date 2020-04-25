@@ -15,6 +15,7 @@ class CreateTblProyectoTable extends Migration
     {
         Schema::create('tblProyecto', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('UUI');
             $table->string('Nombre');
             $table->string('Descripcion');
             $table->string('Url');

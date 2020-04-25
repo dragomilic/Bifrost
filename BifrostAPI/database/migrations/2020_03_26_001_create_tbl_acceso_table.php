@@ -15,9 +15,12 @@ class CreateTblAccesoTable extends Migration
     {
         Schema::create('tblAcceso', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('UUI');
             $table->string('Nombre');
             $table->string('Controller');
             $table->string('Accion');
+            $table->unsignedBigInteger('Posicion');
+            $table->unsignedBigInteger('Orden');
             $table->unsignedBigInteger('IdEstado');
             $table->timestamps();
 

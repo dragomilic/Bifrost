@@ -50,7 +50,7 @@ export class HttpAPIService<T>{
       return this.http.put<T>(Url, Body, options);
     }
   }
-  Delete(HttpAPI: HttpAPI<T>){
+  Delete(HttpAPI: HttpAPI<T>): Observable<T>{
     
     let _headers = HttpAPI.getHeaders();
     let options = { headers: _headers };

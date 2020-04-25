@@ -15,6 +15,7 @@ class CreateTblCuentaTable extends Migration
     {
         Schema::create('tblCuenta', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('UUI');
             $table->string('Nombre');
             $table->string('Plan');
             $table->unsignedBigInteger('IdEstado');

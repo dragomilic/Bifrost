@@ -15,6 +15,7 @@ class CreateTblUsrProyectoTable extends Migration
     {
         Schema::create('tblUsrProyecto', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('UUI');
             $table->unsignedBigInteger('IdProyecto');
             $table->unsignedBigInteger('IdUsuario');
             $table->timestamps();

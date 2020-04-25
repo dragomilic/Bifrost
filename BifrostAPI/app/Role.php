@@ -4,23 +4,25 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Estado extends Model
+class Role extends Model
 {
     /*
-    $table->bigIncrements('id')->auntoincrement();
-    $table->uuid('UUI');
+    $table->bigIncrements('id');
+    $table->string('UUI');
     $table->string('Nombre');
     $table->string('Descripcion');
-    $table->date('FechaCreacion');
+    $table->unsignedBigInteger('IdEstado');//rel
     $table->timestamps();
-    */
-    protected $table = 'tblEstado';
+     */
+    protected $table = 'tblRole';
 
     public $timestamps = 'U';
+    
     protected $fillable = [
         'id',
         'UUI',
         'Nombre',
-        'Descripcion'
+        'Descripcion',
+        'IdEstado'
     ];
 }

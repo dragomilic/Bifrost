@@ -8,6 +8,7 @@ class Proyecto extends Model
 {
     protected $table = 'tblProyecto';
 
+    public $timestamps = 'U';
     /*
         $table->bigIncrements('Indice');
         $table->string('Nombre');
@@ -17,6 +18,7 @@ class Proyecto extends Model
     */
     protected $fillable = [
         'id',
+        'UUI',
         'Nombre',
         'Descripcion',
         'Url',

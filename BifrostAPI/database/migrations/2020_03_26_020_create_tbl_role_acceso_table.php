@@ -15,6 +15,7 @@ class CreateTblRoleAccesoTable extends Migration
     {
         Schema::create('tblRoleAcceso', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('UUI');
             $table->unsignedBigInteger('IdRole');
             $table->unsignedBigInteger('IdAcceso');
             $table->timestamps();

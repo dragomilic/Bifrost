@@ -15,6 +15,7 @@ class CreateTblUsuarioTable extends Migration
     {
         Schema::create('tblUsuario', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('UUI');
             $table->string('Nickname');
             $table->string('Password');
             $table->unsignedBigInteger('IdProyecto');//rel

@@ -15,6 +15,7 @@ class CreateTblClienteTable extends Migration
     {
         Schema::create('tblCliente', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('UUI');
             $table->string('Nombre');
             $table->string('Apellido');
             $table->string('Telefono');
@@ -28,7 +29,7 @@ class CreateTblClienteTable extends Migration
             $table->foreign('IdUsuario')->references('id')->on('tblUsuario');
             //$table->foreignId('IdUsuario')->constrained();
             $table->foreign('IdTipo')->references('id')->on('tblTipoCliente');
-            $table->foreign('IdCuenta')->references('id')->on('tblCuenta');
+            //$table->foreign('IdCuenta')->references('id')->on('tblCuenta');
             $table->foreign('IdEstado')->references('id')->on('tblEstado');
 
         });
