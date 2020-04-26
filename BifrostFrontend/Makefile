@@ -21,9 +21,8 @@ run:
 unpdate:
 	npm update -g
 
-env:
-	virtualenv -p python3 venv
-	source venv/bin/activate
+build:
+	ng build
 
 InitDb:
 	python manage.py db init

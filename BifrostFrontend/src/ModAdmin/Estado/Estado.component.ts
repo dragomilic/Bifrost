@@ -35,7 +35,7 @@ export class EstadoComponent implements OnInit {
     this.modalRef = this.modalService.show(EditarEstadoComponent);
   }
   EliminarEstado(Estado : Estado){
-    this._ES.Eliminar(Estado);
+    this._ES.Eliminar(Estado.id);
   }
 
   anadirCliente(Estado: Estado) {

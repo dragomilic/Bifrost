@@ -20,7 +20,8 @@
       "@app/*": ["./src/app/*"],
       "@env/*": ["./src/environments/*"],
       "@ModAdmin/*": ["./src/ModAdmin/*"],
-      "@Connect/*": ["./src/Conection/*"]
+      "@Connect/*": ["./src/Conection/*"],
+      "@Services/*": ["./src/Services/*"]
     }
   },
   "angularCompilerOptions": {

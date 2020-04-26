@@ -32,6 +32,10 @@ export class CrearProyectoComponent implements OnInit {
     else { this.SaveButtonEst = true; }
   }
   @HostListener('change', ['$event']) onChange(event) {
+
+    let _proyecto = this.ProyectoForm.value;
+    _proyecto.Estado = this.Estados.find(x => x.id == _proyecto.Estado);
+
     if (this.ProyectoForm.valid) { this.SaveButtonEst = false; }
     else { this.SaveButtonEst = true; }
   }
@@ -57,10 +61,7 @@ export class CrearProyectoComponent implements OnInit {
   }
 
   Guardar(){
-    //console.log(this.ProyectoForm.value);
     let _proyecto = this.ProyectoForm.value;
-    _proyecto.Estado = this.Estados.find(x => x.id == _proyecto.Estado);
-    //console.log(_proyecto)
     this.ProyectosService.Crear(_proyecto);
   }
 
