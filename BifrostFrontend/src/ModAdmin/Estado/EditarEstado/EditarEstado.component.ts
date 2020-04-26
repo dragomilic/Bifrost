@@ -27,7 +27,9 @@ export class EditarEstadoComponent implements OnInit {
     else { this.SaveButtonEst = true; }
   }
 
-  constructor(public EditarEstado: MDBModalRef, private fb: FormBuilder, private EstadoService: EstadoService) 
+  constructor(public EditarEstado: MDBModalRef, 
+              private fb: FormBuilder, 
+              private EstadoService: EstadoService) 
   {
 
     this.Estado = this.EstadoService._Estado;

@@ -55,7 +55,7 @@ export interface UsrProyecto extends ObjectInterface{
     IdUsuario: Number;
 }
 
-export interface UsrProyecto extends ObjectInterface{
+export interface UsrRole extends ObjectInterface{
     IdRole: Number;
     IdUsuario: Number;
 }

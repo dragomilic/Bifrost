@@ -27,7 +27,9 @@ export class CrearEstadoComponent implements OnInit {
     else { this.SaveButtonEst = true; }
   }
   
-  constructor(public CrearEstado: MDBModalRef, private fb: FormBuilder, private EstadoService: EstadoService) 
+  constructor(public CrearEstado: MDBModalRef, 
+              private fb: FormBuilder, 
+              private EstadoService: EstadoService) 
   {
     this.Title = 'Crear estado'
     this.EstadoForm = this.fb.group({

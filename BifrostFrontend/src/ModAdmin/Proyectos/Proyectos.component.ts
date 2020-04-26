@@ -3,7 +3,6 @@ import { CrearProyectoComponent } from './CrearProyecto/CrearProyecto.component'
 import { EditarProyectoComponent } from './EditarProyecto/EditarProyecto.component';
 import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
 
-
 import { Proyecto } from "../ModAdminInterface";
 import { ProyectosService } from "./Proyectos.service";
 
@@ -15,49 +14,28 @@ import { ProyectosService } from "./Proyectos.service";
 export class ProyectosComponent implements OnInit {
 
   modalRef: MDBModalRef;
-
-  elements: any = [];
-
-  //element: Proyecto = [];
-
-  heroes : any;
-
-  headElements = ['ID', 'Nombre', 'Descripcion', 'Url', 'Acciones'];
+  _proyectoHead = ['ID', 'Nombre', 'Descripcion', 'Url', 'Acciones'];
+  _proyectoContent: Proyecto[] = [];
   
-  constructor(private modalService: MDBModalService, private PS: ProyectosService) {}
+  constructor(
+    private modalService: MDBModalService, 
+    private PS: ProyectosService) {}
 
   ngOnInit() {
-   this.PS.getdata().subscribe(
-        val => {
-            console.log("PUT call successful value returned in body", 
-                        val);
-            this.elements = val;
-            console.log(this.elements);
-        },
-        response => {
-            console.log("PUT call in error", response);
-        },
-        () => {
-            console.log("The PUT observable is now completed.");
-        }
-    );
+   this.PS.getdata().subscribe(val => { this._proyectoContent = val; });
   }
   
-  openModal() {
-    this.modalRef = this.modalService.show(CrearProyectoComponent, {
-        backdrop: true,
-        keyboard: true,
-        focus: true,
-        show: false,
-        ignoreBackdropClick: false,
-        class: '',
-        containerClass: '',
-        animated: true
-    });
+  CrearProyectoModal() {
+    this.modalRef = this.modalService.show(CrearProyectoComponent);
   }
   
-  openModal1() {
+  EditarProyectoModal(proyecto: Proyecto) {
+    this.PS._Proyecto = proyecto;
     this.modalRef = this.modalService.show(EditarProyectoComponent)
+  }
+
+  EliminarProyecto(proyecto: Proyecto) {
+    this.PS.Eliminar(proyecto);
   }
 
 }

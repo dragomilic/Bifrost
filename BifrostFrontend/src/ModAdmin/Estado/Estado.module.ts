@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { MDBBootstrapModule, ModalModule, TooltipModule, PopoverModule, ButtonsModule } from 'angular-bootstrap-md';
 
+import { EstadoComponent } from './Estado.component';
 import { EstadoRoutingModule } from './Estado-routing.module'
 /**/
-import { EstadoComponent } from './Estado.component';
 import { CrearEstadoComponent } from './CrearEstado/CrearEstado.component'
 import { EditarEstadoComponent } from './EditarEstado/EditarEstado.component'
 

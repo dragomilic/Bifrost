@@ -22,9 +22,11 @@ Route::group(['middleware' => ['cors']], function () {
         Route::post('eliminar/{id}', 'EstadoController@Eliminar');
     });
     Route::prefix('proyecto')->group(function () {
-        Route::get('listado', 'ProyectoController@listado');
-        Route::get('mostrar', 'ProyectoController@mostrar');
-        Route::get('guardar', 'ProyectoController@guardar');
+        Route::get('mostrar'  , 'ProyectoController@Mostrar');
+        Route::get('buscar'  , 'ProyectoController@Buscar');
+        Route::post('guardar' , 'ProyectoController@Guardar');
+        Route::post('editar'  , 'ProyectoController@Editar');
+        Route::post('eliminar/{id}', 'ProyectoController@Eliminar');
     });
     Route::get('api/csrf', function() {
         return response()->json(csrf_token());

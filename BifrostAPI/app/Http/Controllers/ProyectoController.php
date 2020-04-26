@@ -29,15 +29,22 @@ class ProyectoController extends Controller
     {
         try {
 
-            $data = (object) $request->json()->all();
+            $data = $request->json()->all();
+            //$estado = $data['Estado']['id'];
+            
+            //$out = new \Symfony\Component\Console\Output\ConsoleOutput();
+            //$out->writeln($data['Nombre']);//$estado->id);
+            //$out->writeln($estado->get('id'));
+            //$out->writeln('*******************************************');
 
+            /* */
             $proyecto = new Proyecto;
-            $proyecto->UUI = $data->UUI;
-            $proyecto->Nombre = $data->Nombre;
-            $proyecto->Descripcion = $data->Descripcion;
-            $proyecto->Url = $data->Url;
-            $proyecto->IdEstado = $data->IdEstado;
-
+            $proyecto->UUI = $data['UUI'];
+            $proyecto->Nombre = $data['Nombre'];
+            $proyecto->Descripcion = $data['Descripcion'];
+            $proyecto->Url = $data['Url'];
+            $proyecto->IdEstado = $data['Estado']['id'];
+            
             $proyecto->save();
 
             return response()->json($proyecto);

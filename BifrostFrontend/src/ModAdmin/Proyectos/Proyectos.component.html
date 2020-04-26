@@ -1,4 +1,4 @@
-<button class="btn-primary btn2" color="primary" (click)="openModal()">
+<button class="btn-primary btn2" color="primary" (click)="CrearProyectoModal()">
     <i class="fas fa-plus"></i>
     Crear
 </button>
@@ -6,21 +6,21 @@
 <table mdbTable striped="true">
   <thead>
     <tr>
-      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+      <th *ngFor="let head of _proyectoHead" scope="col">{{head}} </th>
     </tr>
   </thead>
   <tbody>
-    <tr mdbTableCol *ngFor="let el of elements">
+    <tr mdbTableCol *ngFor="let el of _proyectoContent">
       <th scope="row">{{el.id}}</th>
       <td>{{el.Nombre}}</td>
       <td>{{el.Descripcion}}</td>
       <td>{{el.Url}}</td>
       <td>
-        <button class="btn-primary btn2" color="primary" (click)="openModal1()">
+        <button class="btn-primary btn2" color="primary" (click)="EditarProyectoModal(el)">
           <i class="fas fa-edit"></i>
           Editar
         </button>
-        <button class="btn-primary btn2" color="primary" (click)="openModal1()">
+        <button class="btn-primary btn2" color="primary" (click)="EliminarProyecto(el)">
           <i class="fas fa-trash-alt"></i>
           Eliminar
         </button>
