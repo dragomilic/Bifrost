@@ -22,7 +22,7 @@ export class ProyectosComponent implements OnInit {
     private PS: ProyectosService) {}
 
   ngOnInit() {
-   this.PS.getdata().subscribe(val => { this._proyectoContent = val; });
+   this.PS.Mostrar().subscribe(val => { this._proyectoContent = val; });
   }
   
   CrearProyectoModal() {
@@ -31,11 +31,11 @@ export class ProyectosComponent implements OnInit {
   
   EditarProyectoModal(proyecto: Proyecto) {
     this.PS._Proyecto = proyecto;
-    this.modalRef = this.modalService.show(EditarProyectoComponent)
+    this.modalRef = this.modalService.show(EditarProyectoComponent);
   }
-
-  EliminarProyecto(proyecto: Proyecto) {
-    this.PS.Eliminar(proyecto);
+  
+  EliminarProyecto(proyecto: Proyecto){
+    this.PS.Eliminar(proyecto.id);
   }
-
+    
 }

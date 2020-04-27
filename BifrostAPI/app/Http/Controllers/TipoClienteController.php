@@ -8,13 +8,15 @@ use App\TipoCliente;
 
 class TipoClienteController extends Controller
 {
+    //
     public function Mostrar()
     {
-        
+        //
         $tipocliente = TipoCliente::all();
-        
+
         return response()->json($tipocliente);
     }
+
     public function Buscar($id)
     {
         //
@@ -22,24 +24,25 @@ class TipoClienteController extends Controller
 
         return response()->json($tipocliente);
     }
+
     public function Guardar(Request $request)
     {
         try {
 
-
-            $data = (object) $request->json()->all();
-
-            //DD($request);
-            //$out = new \Symfony\Component\Console\Output\ConsoleOutput();
-            //$out->writeln($data->Nombre);
-            //$out->writeln('*******************************************');
-            //ConsoleOutput::writeln($request);
-
+            $data = $request->json()->all();
+            //$estado = $data['Estado']['id'];
             
+            //$out = new \Symfony\Component\Console\Output\ConsoleOutput();
+            //$out->writeln($data['Nombre']);//$estado->id);
+            //$out->writeln($estado->get('id'));
+            //$out->writeln('*******************************************');
+
+            /* */
             $tipocliente = new TipoCliente;
-            $tipocliente->UUI = $data->UUI;
-            $tipocliente->Nombre = $data->Nombre;
-            $tipocliente->Descripcion = $data->Descripcion;
+            $tipocliente->UUI = $data['UUI'];
+            $tipocliente->Nombre = $data['Nombre'];
+            $tipocliente->Descripcion = $data['Descripcion'];
+            $tipocliente->IdEstado = $data['Estado']['id'];
             
             $tipocliente->save();
 
@@ -50,10 +53,9 @@ class TipoClienteController extends Controller
         }
 
     }
+
     public function Editar(Request $request)
     {
-        //
-
         try {
             
             $data = (object) $request->json()->all();
@@ -61,6 +63,8 @@ class TipoClienteController extends Controller
             $tipocliente = TipoCliente::find($data->id);
             $tipocliente->Nombre = $data->Nombre;
             $tipocliente->Descripcion = $data->Descripcion;
+            $tipocliente->Url = $data->Url;
+            $tipocliente->IdEstado = $data->IdEstado;
 
             $tipocliente->save();
 
@@ -73,10 +77,6 @@ class TipoClienteController extends Controller
     }
     public function Eliminar($id)
     {
-        //
-        //$out = new \Symfony\Component\Console\Output\ConsoleOutput();
-        //$out->writeln($id);
-
         $tipocliente = TipoCliente::find($id);
         $tipocliente->delete();
 

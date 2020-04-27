@@ -16,7 +16,7 @@ export class TipoClienteService extends MainHttpService<TipoCliente> {
     super(_HttpAPIService);
     this.conexion = {
       UrlRoute : environment.Url_API,
-      Controller: 'TipoCliente'
+      Controller: 'tipocliente'
     }
   }
 

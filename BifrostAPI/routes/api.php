@@ -28,6 +28,20 @@ Route::group(['middleware' => ['cors']], function () {
         Route::post('editar'  , 'ProyectoController@Editar');
         Route::post('eliminar/{id}', 'ProyectoController@Eliminar');
     });
+    Route::prefix('role')->group(function () {
+        Route::get('mostrar'  , 'RoleController@Mostrar');
+        Route::get('buscar'  , 'RoleController@Buscar');
+        Route::post('guardar' , 'RoleController@Guardar');
+        Route::post('editar'  , 'RoleController@Editar');
+        Route::post('eliminar/{id}', 'RoleController@Eliminar');
+    });
+    Route::prefix('tipocliente')->group(function () {
+        Route::get('mostrar'  , 'RoleController@Mostrar');
+        Route::get('buscar'  , 'RoleController@Buscar');
+        Route::post('guardar' , 'RoleController@Guardar');
+        Route::post('editar'  , 'RoleController@Editar');
+        Route::post('eliminar/{id}', 'RoleController@Eliminar');
+    });
     Route::get('api/csrf', function() {
         return response()->json(csrf_token());
     });

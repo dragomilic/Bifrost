@@ -37,8 +37,4 @@ export class EstadoComponent implements OnInit {
   EliminarEstado(Estado : Estado){
     this._ES.Eliminar(Estado.id);
   }
-
-  anadirCliente(Estado: Estado) {
-    //this.Estado.push(Estado)
-  }
 }

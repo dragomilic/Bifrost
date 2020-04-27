@@ -1,0 +1,40 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="CrearTipoCliente.hide()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title w-100" id="myModalLabel">{{Title}}</h4>
+  </div>
+  <div class="modal-body">
+    
+    <div [formGroup]="TipoClienteForm">
+
+      <div class="md-form">
+        <input mdbInput type="text" id="form1" class="form-control" formControlName="Nombre" required>
+        <label for="form1" class="">Nombre</label>
+      </div>
+
+      <div class="md-form">
+        <textarea mdbInput type="text" id="form7" class="md-textarea md-textarea-auto form-control" formControlName="Descripcion"></textarea>
+        <label for="form7">Descripción</label>
+      </div>
+      
+      <select class="browser-default custom-select" formControlName="Estado">
+        <option selected>Estado</option>
+        <option *ngFor="let Estado of Estados" value="{{Estado.id | number}}">{{Estado.Nombre}}</option>
+      </select>
+      
+    </div>
+
+    <div>
+      Form Status: {{ TipoClienteForm.status }} - Form Valid: {{ TipoClienteForm.valid }} - {{SaveButtonEst}}
+      <br>
+      From value: {{ this.TipoClienteForm.value | json }}
+    </div>
+    
+  </div>
+  <div class="modal-footer">
+    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="CrearTipoCliente.hide()" mdbWavesEffect>Cerrar</button>
+    <button type="button" mdbBtn color="primary" class="relative waves-light" [disabled]="SaveButtonEst" (click)="Guardar()" mdbWavesEffect>Guardar</button>
+  </div>
+</div>
